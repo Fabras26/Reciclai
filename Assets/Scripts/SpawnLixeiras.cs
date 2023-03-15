@@ -23,7 +23,6 @@ public class SpawnLixeiras : MonoBehaviour
         {
             spawnsPos[i].rotacão = ((360f/spawnsPos.Length) * i);
         }
-        Alinhar();
         GameObject lixeira;
         for(int i= 0; i<Lixeiras.Length; i++)
         {
@@ -49,14 +48,5 @@ public class SpawnLixeiras : MonoBehaviour
             }
         }
        
-    }
-    void FixedUpdate()
-    {
-        Alinhar();
-    }
-    void Alinhar()
-    {/*
-        transform.rotation = globo.transform.rotation;
-        transform.position = globo.transform.position;*/
     }
 }

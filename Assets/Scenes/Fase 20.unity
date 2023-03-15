@@ -399,10 +399,10 @@ MonoBehaviour:
   vitoria: 0
   canvasFim: {fileID: 934244314}
   canvasFase: {fileID: 1088162062}
-  proximaFase: Fase 20
+  proximaFase: Fase 21
   particulasAcerto: {fileID: 6475099191559032443, guid: 8cef91ec47f960443a0a1a06dc667920, type: 3}
   pausado: 0
-  quantidadeResiduos: 9
+  quantidadeResiduos: 10
   ResiduoSpawnPosition: {x: 0, y: -3.5}
   residuos:
   - {fileID: 3081728108960713566, guid: a7294bc81eed89c4b9ab2d69a155c248, type: 3}
@@ -531,11 +531,11 @@ PrefabInstance:
       objectReference: {fileID: 6332572159768994358, guid: 521df5a50d295c54598bcc019dd2d2d6, type: 3}
     - target: {fileID: 1755802952241690587, guid: 439e1d6c60fc0b74682ae56405aff03a, type: 3}
       propertyPath: padraoDeRotacao.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1755802952241690587, guid: 439e1d6c60fc0b74682ae56405aff03a, type: 3}
       propertyPath: padraoDeRotacao.Array.data[2].duracao
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1755802952241690587, guid: 439e1d6c60fc0b74682ae56405aff03a, type: 3}
       propertyPath: padraoDeRotacao.Array.data[3].duracao
@@ -550,12 +550,24 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1755802952241690587, guid: 439e1d6c60fc0b74682ae56405aff03a, type: 3}
+      propertyPath: padraoDeRotacao.Array.data[6].duracao
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1755802952241690587, guid: 439e1d6c60fc0b74682ae56405aff03a, type: 3}
       propertyPath: padraoDeRotacao.Array.data[0].velocidade
-      value: 100
+      value: -125
       objectReference: {fileID: 0}
     - target: {fileID: 1755802952241690587, guid: 439e1d6c60fc0b74682ae56405aff03a, type: 3}
       propertyPath: padraoDeRotacao.Array.data[1].velocidade
-      value: -100
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 1755802952241690587, guid: 439e1d6c60fc0b74682ae56405aff03a, type: 3}
+      propertyPath: padraoDeRotacao.Array.data[2].velocidade
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1755802952241690587, guid: 439e1d6c60fc0b74682ae56405aff03a, type: 3}
+      propertyPath: padraoDeRotacao.Array.data[3].velocidade
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 1755802952241690587, guid: 439e1d6c60fc0b74682ae56405aff03a, type: 3}
       propertyPath: padraoDeRotacao.Array.data[4].velocidade
@@ -564,6 +576,10 @@ PrefabInstance:
     - target: {fileID: 1755802952241690587, guid: 439e1d6c60fc0b74682ae56405aff03a, type: 3}
       propertyPath: padraoDeRotacao.Array.data[5].velocidade
       value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1755802952241690587, guid: 439e1d6c60fc0b74682ae56405aff03a, type: 3}
+      propertyPath: padraoDeRotacao.Array.data[6].velocidade
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 439e1d6c60fc0b74682ae56405aff03a, type: 3}
@@ -687,6 +703,10 @@ PrefabInstance:
     - target: {fileID: 5300508694541752116, guid: 4cc5f98bb456a3a49bb36af8f43da392, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Reinicio
+      objectReference: {fileID: 0}
+    - target: {fileID: 5300508694568045189, guid: 4cc5f98bb456a3a49bb36af8f43da392, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5300508694817715106, guid: 4cc5f98bb456a3a49bb36af8f43da392, type: 3}
       propertyPath: m_SizeDelta.x

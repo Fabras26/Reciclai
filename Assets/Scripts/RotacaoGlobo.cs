@@ -22,6 +22,8 @@ public class RotacaoGlobo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        velocidadeAtual = padraoDeRotacao[0].velocidade;
+
         StartCoroutine(Rotacionar());
     }
     IEnumerator Rotacionar()
@@ -34,10 +36,8 @@ public class RotacaoGlobo : MonoBehaviour
             yield return new WaitForFixedUpdate();
             velocidadeAtual = padraoDeRotacao[rotationIndex].velocidade;
             yield return new WaitForSecondsRealtime(padraoDeRotacao[rotationIndex].duracao);
-            rotationIndex++;
-            rotationIndex = rotationIndex < padraoDeRotacao.Length ? rotationIndex : 0;
-
-            //Debug.Log(PlayerPrefs.GetFloat("ModificadorVelocidadeGlobo"));
+         
+            Debug.Log(PlayerPrefs.GetFloat("ModificadorVelocidadeGlobo") + "Mudou de velocidade");
         }
     }
 

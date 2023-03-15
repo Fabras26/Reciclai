@@ -19,6 +19,8 @@ public class Residuo : MonoBehaviour
 
     private Animator anim;
 
+    private AudioPlayer audioP;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -26,12 +28,14 @@ public class Residuo : MonoBehaviour
     }
     private void Start()
     {
+        audioP = FindObjectOfType<AudioPlayer>().GetComponent<AudioPlayer>();
         anim = GetComponent<Animator>();
     }
     private void Update()
     {
         if(Input.GetMouseButtonDown(0) && ativo && GameObject.FindGameObjectWithTag("Controller").GetComponent<GameController>().pausado == false)
         {
+            audioP.PlayAudio(audioP.arremesso);
             rb.AddForce(forcaArremesso, ForceMode2D.Impulse);
         }
     }
@@ -40,13 +44,6 @@ public class Residuo : MonoBehaviour
         if (!ativo)
             return;
         ativo = false;
-        /*
-        rb.velocity = new Vector2(0, 0);
-        rb.bodyType = RigidbodyType2D.Kinematic;
-        this.transform.SetParent(collision.collider.transform);
-
-        residuoCollider.offset = new Vector2(residuoCollider.offset.x, 0.4f);
-        residuoCollider.size = new Vector2(residuoCollider.size.x, 1.2f);*/
         rb.velocity = new Vector2(0, 0);
         rb.bodyType = RigidbodyType2D.Kinematic;
         residuoCollider.offset = new Vector2(residuoCollider.offset.x, 0.4f);
@@ -65,11 +62,12 @@ public class Residuo : MonoBehaviour
                 var particulas = Instantiate(particulasAcerto, transform.position, transform.rotation);
                 particulas.transform.parent = collision.transform;
                 GameController.Instance.GameUI.DiminuirContagemDeResiduos();
-                GameController.Instance.AcertoDeResiuduo();
+                GameController.Instance.AcertoResiduo();
 
             }
             else
             {
+                audioP.PlayAudio(audioP.erro);
 
                 GameController.Instance.fimDeJogo = true;
                 Instantiate(particulasErro, transform.position, particulasErro.transform.rotation) ;
@@ -79,7 +77,7 @@ public class Residuo : MonoBehaviour
         }
         else
         {
-
+            audioP.PlayAudio(audioP.erro);
             GameController.Instance.fimDeJogo = true;
             Instantiate(particulasErro, transform.position, particulasErro.transform.rotation);
             Destruir();
@@ -90,8 +88,6 @@ public class Residuo : MonoBehaviour
     }
     public void Destruir()
     {
-        //GameController.Instance.vitoria = true;
-
         anim.SetTrigger("Acerto");
         Destroy(gameObject, 3.5f);
     }

@@ -23,11 +23,6 @@ public class Globo : MonoBehaviour
 
     bool cooldown;
 
-    private void Awake()
-    {
-        wheelJoint = GetComponent<WheelJoint2D>();
-        motor = new JointMotor2D();
-    }
     private void Start()
     {
         StartCoroutine(Rotacionar());
@@ -52,36 +47,7 @@ public class Globo : MonoBehaviour
             Debug.Log(PlayerPrefs.GetFloat("ModificadorVelocidadeGlobo"));
         }
     }
-    private void Update()
-    {/*
-        if(transform.position.y < 2)
-        {
-            StartCoroutine(ResolverBug());            
-
-        }*/
-    }
-
-    IEnumerator ResolverBug()
-    {
-        if(cooldown == false)
-        {
-            cooldown = true;
-            spawns.SetActive(false);
-            wheelJoint.enabled = false;
-            yield return new WaitForSeconds(0.1f);
-            transform.position = new Vector3(0, 2f, 0);
-            yield return new WaitForSeconds(0.1f);
-            wheelJoint.enabled = true;
-            spawns.SetActive(true);
-            yield return new WaitForSeconds(0.1f);
-
-            Debug.Log("Bugou");
-            GetComponentInParent<Animator>().Rebind();
-
-            cooldown = false;
-        }
-       
-
-    }
+   
+      
 
 }

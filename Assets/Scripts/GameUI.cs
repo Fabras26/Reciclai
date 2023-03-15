@@ -33,7 +33,6 @@ public class GameUI : MonoBehaviour
     }
     public void DiminuirContagemDeResiduos()
     {
-        // painel.transform.GetChild(indexResiduoParaMudar).GetComponent<Image>().sprite = tipoResiduo[0];
         painel.transform.GetChild(indexResiduoParaMudar++).GetComponent<Image>().color = Color.black;
 
         GameController.Instance.tipoResiduo = painel.transform.GetChild(indexResiduoParaMudar).GetComponent<ResiduoInventario>().tipo;

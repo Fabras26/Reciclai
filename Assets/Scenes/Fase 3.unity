@@ -1369,10 +1369,6 @@ MonoBehaviour:
     Ocupado: 0
   - "rotac\xE3o": 0
     Ocupado: 0
-  - "rotac\xE3o": 0
-    Ocupado: 0
-  - "rotac\xE3o": 0
-    Ocupado: 0
   Lixeiras:
   - {fileID: 7348352273295940384, guid: f201550a0efb79044a0c25f1550ff61e, type: 3}
   - {fileID: 1565264807826791631, guid: d76a31f7063a6324a8a34ae8e97bde66, type: 3}
@@ -1691,9 +1687,7 @@ MonoBehaviour:
   fimDeJogo: 0
   vitoria: 0
   canvasFim: {fileID: 1531453351}
-  canvasVenceu: {fileID: 1208398338}
   canvasFase: {fileID: 927099752}
-  canvasPause: {fileID: 1162795586}
   proximaFase: Fase 4
   particulasAcerto: {fileID: 6475099191559032443, guid: 8cef91ec47f960443a0a1a06dc667920, type: 3}
   pausado: 0

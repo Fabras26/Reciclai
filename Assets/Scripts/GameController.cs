@@ -6,15 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    private AudioPlayer audioP;
     public int pontos;
     public bool fimDeJogo = false;
     public bool vitoria = false;
 
     public GameObject canvasFim;
-    public GameObject canvasVenceu;
-
     public GameObject canvasFase;
-    public GameObject canvasPause;
 
     public string proximaFase;
     [SerializeField]
@@ -46,6 +44,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioP = FindObjectOfType<AudioPlayer>().GetComponent<AudioPlayer>();
         GameUI.SetInicialContadorResiudos(quantidadeResiduos);
         pontos = PlayerPrefs.GetInt("Pontuacao");
         SpawnResiduo();
@@ -67,14 +66,14 @@ public class GameController : MonoBehaviour
         }
         
     }
-    public void AcertoDeResiuduo()
+    public void AcertoResiduo()
     {
+        audioP.PlayAudio(audioP.acerto);
         SpawnResiduo();
     }
-
-    private void SpawnResiduo()
+    public void SpawnResiduo()
     {
-       var residuo = Instantiate(residuos[tipoResiduo], ResiduoSpawnPosition, Quaternion.identity);
+        var residuo = Instantiate(residuos[tipoResiduo], ResiduoSpawnPosition, Quaternion.identity);
         residuo.GetComponent<Residuo>().ativo = true;
     }
 
@@ -115,17 +114,16 @@ public class GameController : MonoBehaviour
     {
         pausado = true;
         canvasFase.SetActive(false);
-        canvasPause.SetActive(true);
     }
     public void Despausar()
     {
         canvasFase.SetActive(true);
-        canvasPause.SetActive(false);
         pausado = false;
-
+        audioP.PlayAudio(audioP.clique);
     }
     public void Reinicio()
     {
+        audioP.PlayAudio(audioP.clique);
         if (SceneManager.GetActiveScene().name != "Menu")
         {
             DesativarTutorial();
@@ -148,7 +146,7 @@ public class GameController : MonoBehaviour
     }
     IEnumerator Vencer()
     {
-       
+        audioP.PlayAudio(audioP.faseCompleta);
         var particulas = Instantiate(particulasAcerto, transform.position, transform.rotation);
         particulas.transform.localScale = new Vector3(3, 3, 3);
         GameObject.Find("Globo").GetComponent<Animator>().SetBool("vitoria", true);
@@ -164,5 +162,9 @@ public class GameController : MonoBehaviour
     public void DesativarTutorial()
     {
         PlayerPrefs.SetInt("Tutorial", 0);
+    }
+    public void Sair()
+    {
+        Application.Quit();
     }
 }
